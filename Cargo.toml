@@ -3,6 +3,10 @@ name = "simple-geom"
 version = "0.1.0"
 edition = "2021"
 authors = ["Eugene Krokhalev <eugene.krokhalev@gmail.com>"]
+license-file = "LICENSE"
+repository = "https://github.com/heni/simple-geom/"
+keywords = ["geometry", "polygons", "plane"]
+readme = "README.md"
 
 [dev-dependencies]
 float-cmp = "0.9.0"
