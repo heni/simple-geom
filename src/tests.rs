@@ -46,3 +46,9 @@ fn polygon_02() {
     ));
 }
 
+#[test]
+fn normalize_zero() {
+    let v = Point2D::origin().to_vec();
+    let u = v.unit();
+    assert!(u.map_or(true, |u| approx_eq!(f64, 1.0, u.len())));
+}

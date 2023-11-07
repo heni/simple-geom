@@ -27,7 +27,7 @@ pub fn add_mut(&mut self, v: &Vector2D) -> &Self;  /** mutably add second vector
 pub fn kmul(&self, k: f64) -> Self;  /** return scaled by k vector **/
 pub fn dot(&self, v: &Vector2D) -> f64;  /** return dot product result for the vectors **/
 pub fn cross(&self, v: &Vector2D) -> f64;  /** return cross product result for the 2d vectors **/
-pub fn unit(&self) -> Self;  /** return scaled to the lenght=1 vector **/
+pub fn unit(&self) -> Option<Self>;  /** return scaled to the lenght=1 vector if possible **/
 pub fn perpendicular(&self) -> Self;  /** return vector perpendicular to the given one **/
 ```
 

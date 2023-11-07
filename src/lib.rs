@@ -121,8 +121,12 @@ impl Vector2D {
     pub fn cross(&self, v: &Vector2D) -> f64 {
         self.x * v.y - self.y * v.x
     }
-    pub fn unit(&self) -> Self {
-        self.kmul(1. / self.len())
+    pub fn unit(&self) -> Option<Self> {
+        if self.len() != 0.0 {
+            Some(self.kmul(1. / self.len()))
+        } else {
+            None
+        }
     }
     pub fn perpendicular(&self) -> Self {
         Vector2D {
@@ -165,7 +169,7 @@ impl Segment2D {
             return match self.e.x * (o.p.y - self.p.y) - self.e.y * (o.p.x - self.p.x) {
                 val if val.abs() > Self::EPS => SegmentIntersection::None,
                 _ => {
-                    let w = self.e.unit();
+                    let w = self.e.unit().unwrap();
                     let (o0, o1) = (p10.sub(&p00).dot(&w), p11.sub(&p00).dot(&w));
                     let (s0, s1) = (0., self.e.len());
                     if o0 < s0 {
